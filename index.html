@@ -3,7 +3,7 @@
 <html data-wf-page="60b5f745606751c3c4b399e8" data-wf-site="60b5f745606751b24db399e5">
 <head>
   <meta charset="utf-8">
-  <title>Route Mapping</title>
+  <title>Melbourne Urban Engine</title>
   <meta content="Route Mapping" property="og:title">
   <meta content="Route Mapping" property="twitter:title">
   <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -49,9 +49,10 @@ display: none;
     mapboxgl.accessToken = 'pk.eyJ1IjoibW90YXkzNCIsImEiOiJja29qYTl1dmsxM2ttMm9wbmR1MGx6cGYwIn0.z0wDjYyri3CmReax8aak0A'; //Mapbox token 
     var map = new mapboxgl.Map({
       container: 'map', // container id
-      style: 'mapbox://styles/mapbox/navigation-night-v1', 
-      // YOUR TURN: choose a style: mapbox://styles/mapbox/navigation-night-v11
-      center: [144.946457, -37.840935], // starting position [lng, lat]
+      style: 'mapbox://styles/mapbox/dark-v10', 
+      // YOUR TURN: choose a style: mapbox://styles/mapbox/navigation-night-v1
+      //mapbox://styles/mapbox/dark-v10
+      center: [144.95996475219727, -37.81324221081575], // starting position [lng, lat]
       zoom: 12,// starting zoom
 });
 var canvas = map.getCanvasContainer();
@@ -62,7 +63,7 @@ var geojson = {
 'type': 'Feature',
 'geometry': {
 'type': 'Point',
-'coordinates': [144.946457, -37.840935]
+'coordinates': [144.95996475219727, -37.81324221081575]
 }
 }
 ]
@@ -99,18 +100,18 @@ map.addLayer({
 'type': 'circle',
 'source': 'point',
 'paint': {
-'circle-radius': 15,
+'circle-radius': 10,
 'circle-color': '#FF0000' // red color
 }
 });
 // When the cursor enters a feature in
 // the point layer, prepare for dragging.
 map.on('mouseenter', 'point', function () {
-map.setPaintProperty('point', 'circle-color', '#3bb2d0');
+map.setPaintProperty('point', 'circle-color', '#FF0000');
 canvas.style.cursor = 'move';
 });
 map.on('mouseleave', 'point', function () {
-map.setPaintProperty('point', 'circle-color', '#3887be');
+map.setPaintProperty('point', 'circle-color', '#FF0000');
 canvas.style.cursor = '';
 });
 map.on('mousedown', 'point', function (e) {
